@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RiskWise | Credit Risk Intelligence</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="brand">
+            <span class="brand-mark">
+                RW
+            </span>
+
+            <div>
+                <div class="brand-name">RISKWISE</div>
+                <div class="brand-subtitle">CREDIT RISK INTELLIGENCE</div>
+            </div>
+        </div>
+
+        <div class="nav-status">
+            <span class="status-dot"></span>
+            ML MODEL ONLINE
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="container">
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-badge">
+                MACHINE LEARNING • CREDIT ANALYTICS
+            </div>
+
+            <h1>
+                Credit Risk
+                <span>Assessment.</span>
+            </h1>
+
+            <p>
+                Evaluate an applicant's probability of credit default
+                using our machine learning risk assessment engine.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             APPLICATION CARD
+        ========================== -->
+
+        <section class="application-card">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">01</span>
+                    <h2>Applicant Information</h2>
+
+                    <p>
+                        Enter the applicant's financial and demographic
+                        information to generate a risk assessment.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <form id="riskForm">
+
+                <!-- BASIC INFORMATION -->
+
+                <div class="form-section">
+
+                    <h3>Profile</h3>
+
+                    <div class="form-grid">
+
+                        <div class="input-group">
+                            <label for="ID">Applicant ID</label>
+                            <input
+                                type="number"
+                                id="ID"
+                                name="ID"
+                                value="1"
+                                required
+                            >
+                        </div>
+
+                        <div class="input-group">
+                            <label for="AGE">Age</label>
+                            <input
+                                type="number"
+                                id="AGE"
+                                name="AGE"
+                                value="30"
+                                min="18"
+                                max="100"
+                                required
+                            >
+                        </div>
+
+                        <div class="input-group">
+                            <label for="SEX">Gender</label>
+
+                            <select id="SEX" name="SEX">
+                                <option value="1">Male</option>
+                                <option value="2" selected>Female</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="EDUCATION">Education</label>
+
+                            <select id="EDUCATION" name="EDUCATION">
+                                <option value="1">Graduate School</option>
+                                <option value="2" selected>University</option>
+                                <option value="3">High School</option>
+                                <option value="4">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="MARRIAGE">Marital Status</label>
+
+                            <select id="MARRIAGE" name="MARRIAGE">
+                                <option value="1">Married</option>
+                                <option value="2" selected>Single</option>
+                                <option value="3">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="LIMIT_BAL">Credit Limit</label>
+
+                            <div class="input-with-prefix">
+                                <span>NT$</span>
+                                <input
+                                    type="number"
+                                    id="LIMIT_BAL"
+                                    name="LIMIT_BAL"
+                                    value="50000"
+                                    min="0"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAYMENT HISTORY -->
+
+                <div class="form-section">
+
+                    <h3>Payment History</h3>
+
+                    <div class="form-grid">
+
+                        <div class="input-group">
+                            <label for="PAY_0">Latest Repayment Status</label>
+
+                            <select id="PAY_0" name="PAY_0">
+                                <option value="-2">No consumption</option>
+                                <option value="-1">Paid duly</option>
+                                <option value="0" selected>Revolving credit</option>
+                                <option value="1">1 month delayed</option>
+                                <option value="2">2 months delayed</option>
+                                <option value="3">3 months delayed</option>
+                                <option value="4">4 months delayed</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="PAY_2">Previous Repayment Status</label>
+
+                            <select id="PAY_2" name="PAY_2">
+                                <option value="-2">No consumption</option>
+                                <option value="-1">Paid duly</option>
+                                <option value="0" selected>Revolving credit</option>
+                                <option value="1">1 month delayed</option>
+                                <option value="2">2 months delayed</option>
+                                <option value="3">3 months delayed</option>
+                                <option value="4">4 months delayed</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="PAY_3">2 Months Prior</label>
+
+                            <select id="PAY_3" name="PAY_3">
+                                <option value="-2">No consumption</option>
+                                <option value="-1">Paid duly</option>
+                                <option value="0" selected>Revolving credit</option>
+                                <option value="1">1 month delayed</option>
+                                <option value="2">2 months delayed</option>
+                                <option value="3">3 months delayed</option>
+                                <option value="4">4 months delayed</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="PAY_4">3 Months Prior</label>
+
+                            <select id="PAY_4" name="PAY_4">
+                                <option value="-2">No consumption</option>
+                                <option value="-1">Paid duly</option>
+                                <option value="0" selected>Revolving credit</option>
+                                <option value="1">1 month delayed</option>
+                                <option value="2">2 months delayed</option>
+                                <option value="3">3 months delayed</option>
+                                <option value="4">4 months delayed</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="PAY_5">4 Months Prior</label>
+
+                            <select id="PAY_5" name="PAY_5">
+                                <option value="-2">No consumption</option>
+                                <option value="-1">Paid duly</option>
+                                <option value="0" selected>Revolving credit</option>
+                                <option value="1">1 month delayed</option>
+                                <option value="2">2 months delayed</option>
+                                <option value="3">3 months delayed</option>
+                                <option value="4">4 months delayed</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="PAY_6">5 Months Prior</label>
+
+                            <select id="PAY_6" name="PAY_6">
+                                <option value="-2">No consumption</option>
+                                <option value="-1">Paid duly</option>
+                                <option value="0" selected>Revolving credit</option>
+                                <option value="1">1 month delayed</option>
+                                <option value="2">2 months delayed</option>
+                                <option value="3">3 months delayed</option>
+                                <option value="4">4 months delayed</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BILLING INFORMATION -->
+
+                <div class="form-section">
+
+                    <h3>Billing Information</h3>
+
+                    <div class="form-grid">
+
+                        <div class="input-group">
+                            <label for="BILL_AMT1">Latest Bill Amount</label>
+
+                            <div class="input-with-prefix">
+                                <span>NT$</span>
+                                <input
+                                    type="number"
+                                    id="BILL_AMT1"
+                                    name="BILL_AMT1"
+                                    value="0"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="BILL_AMT2">Previous Bill Amount</label>
+
+                            <div class="input-with-prefix">
+                                <span>NT$</span>
+                                <input
+                                    type="number"
+                                    id="BILL_AMT2"
+                                    name="BILL_AMT2"
+                                    value="0"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="BILL_AMT3">Bill Amount — Month 3</label>
+
+                            <div class="input-with-prefix">
+                                <span>NT$</span>
+                                <input
+                                    type="number"
+                                    id="BILL_AMT3"
+                                    name="BILL_AMT3"
+                                    value="0"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="BILL_AMT4">Bill Amount — Month 4</label>
+
+                            <div class="input-with-prefix">
+                                <span>NT$</span>
+                                <input
+                                    type="number"
+                                    id="BILL_AMT4"
+                                    name="BILL_AMT4"
+                                    value="0"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="BILL_AMT5">Bill Amount — Month 5</label>
+
+                            <div class="input-with-prefix">
+                                <span>NT$</span>
+                                <input
+                                    type="number"
+                                    id="BILL_AMT5"
+                                    name="BILL_AMT5"
+                                    value="0"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="BILL_AMT6">Bill Amount — Month 6</label>
+
+                            <div class="input-with-prefix">
+                                <span>NT$</span>
+                                <input
+                                    type="number"
+                                    id="BILL_AMT6"
+                                    name="BILL_AMT6"
+                                    value="0"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAYMENT AMOUNTS -->
+
+                <div class="form-section">
+
+                    <h3>Payment Amounts</h3>
+
+                    <div class="form-grid">
+
+                        <div class="input-group">
+                            <label for="PAY_AMT1">Latest Payment</label>
+
+                            <div class="input-with-prefix">
+                                <span>NT$</span>
+                                <input
+                                    type="number"
+                                    id="PAY_AMT1"
+                                    name="PAY_AMT1"
+                                    value="0"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="PAY_AMT2">Previous Payment</label>
+
+                            <div class="input-with-prefix">
+                                <span>NT$</span>
+                                <input
+                                    type="number"
+                                    id="PAY_AMT2"
+                                    name="PAY_AMT2"
+                                    value="0"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="PAY_AMT3">Payment — Month 3</label>
+
+                            <div class="input-with-prefix">
+                                <span>NT$</span>
+                                <input
+                                    type="number"
+                                    id="PAY_AMT3"
+                                    name="PAY_AMT3"
+                                    value="0"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="PAY_AMT4">Payment — Month 4</label>
+
+                            <div class="input-with-prefix">
+                                <span>NT$</span>
+                                <input
+                                    type="number"
+                                    id="PAY_AMT4"
+                                    name="PAY_AMT4"
+                                    value="0"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="PAY_AMT5">Payment — Month 5</label>
+
+                            <div class="input-with-prefix">
+                                <span>NT$</span>
+                                <input
+                                    type="number"
+                                    id="PAY_AMT5"
+                                    name="PAY_AMT5"
+                                    value="0"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="PAY_AMT6">Payment — Month 6</label>
+
+                            <div class="input-with-prefix">
+                                <span>NT$</span>
+                                <input
+                                    type="number"
+                                    id="PAY_AMT6"
+                                    name="PAY_AMT6"
+                                    value="0"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <div class="form-actions">
+
+                    <div class="privacy-note">
+                        <span>●</span>
+                        Assessment processed locally through RiskWise ML
+                    </div>
+
+                    <button type="submit" class="assess-button">
+                        <span>ASSESS CREDIT RISK</span>
+                        <span class="arrow">→</span>
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- =========================
+             RISK RESULT
+        ========================== -->
+
+        <section
+            id="resultSection"
+            class="result-card hidden"
+        >
+
+            <div class="result-header">
+
+                <div>
+                    <span class="section-number">02</span>
+                    <h2>Risk Assessment</h2>
+                </div>
+
+                <span id="riskBadge" class="risk-badge">
+                    MODERATE
+                </span>
+
+            </div>
+
+
+            <div class="risk-content">
+
+                <div class="probability-area">
+
+                    <span class="result-label">
+                        DEFAULT PROBABILITY
+                    </span>
+
+                    <div id="probability" class="probability">
+                        0%
+                    </div>
+
+                    <div class="progress-bar">
+                        <div
+                            id="progress"
+                            class="progress-fill"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="risk-message">
+
+                    <h3 id="riskTitle">
+                        Moderate Risk
+                    </h3>
+
+                    <p id="riskDescription">
+                        The applicant presents a moderate
+                        probability of credit default.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="result-footer">
+
+                <div>
+                    <span class="footer-label">MODEL</span>
+                    <strong>Random Forest Classifier</strong>
+                </div>
+
+                <div>
+                    <span class="footer-label">STATUS</span>
+                    <strong class="online">● ANALYSIS COMPLETE</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div>
+            RISKWISE
+            <span>•</span>
+            MACHINE LEARNING CREDIT RISK ASSESSMENT
+        </div>
+
+        <div class="footer-author">
+            BUILT BY <strong>SIDDHANTH JAIN</strong>
+            <span>•</span>
+            v1.0.0
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="/static/script.js"></script>
+
+</body>
+</html>
