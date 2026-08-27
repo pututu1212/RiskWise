@@ -104,7 +104,6 @@ def predict(applicant: Applicant):
         processed_data
     )[0][1]
 
-
     # Determine risk level
     if probability < 0.30:
         risk_level = "Low"
@@ -114,7 +113,6 @@ def predict(applicant: Applicant):
 
     else:
         risk_level = "High"
-
 
     return {
         "prediction": int(prediction),

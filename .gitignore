@@ -30,3 +30,6 @@ Thumbs.db
 # Python model artifacts / temporary files
 *.pkl.tmp
 *.log
+
+# Jupyter
+.ipynb_checkpoints/

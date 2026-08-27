@@ -38,6 +38,24 @@ def sample_applicant():
     }
 
 
+def test_root():
+    response = client.get("/")
+
+    assert response.status_code == 200
+
+
+def test_docs():
+    response = client.get("/docs")
+
+    assert response.status_code == 200
+
+
+def test_openapi():
+    response = client.get("/openapi.json")
+
+    assert response.status_code == 200
+
+
 def test_prediction_endpoint():
     response = client.post(
         "/predict",

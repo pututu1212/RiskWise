@@ -23,7 +23,7 @@ Credit risk assessment involves evaluating multiple financial and repayment-rela
 
 RiskWise was built to demonstrate how a trained machine-learning model can be turned into a usable application by connecting the complete pipeline:
 
-Applicant Input → Data Preprocessing → Machine Learning Model → Risk Assessment → Web Interface
+**Applicant Input → Data Preprocessing → Machine Learning Model → Risk Assessment → Web Interface**
 
 The project focuses not only on training a model, but also on serving the trained model through an API and providing a simple interface through which users can interact with it.
 
@@ -49,12 +49,16 @@ Risk classification is currently based on the model's predicted probability:
 - FastAPI
 - Pydantic
 - Pandas
+- NumPy
 - Scikit-learn
 - Joblib
 - HTML
 - CSS
 - JavaScript
 - Random Forest Classifier
+- Docker
+- Docker Compose
+- GitHub Actions
 
 ## API
 
@@ -66,7 +70,7 @@ Example response:
 
 ```json
 {
-    "prediction": 0,
-    "default_probability": 0.271,
-    "risk_level": "Low"
+  "prediction": 0,
+  "default_probability": 0.271,
+  "risk_level": "Low"
 }

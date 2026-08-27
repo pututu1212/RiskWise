@@ -9,7 +9,6 @@
 // =========================================================
 
 const riskForm = document.getElementById("riskForm");
-
 const resultSection = document.getElementById("resultSection");
 const riskBadge = document.getElementById("riskBadge");
 const probabilityElement = document.getElementById("probability");
@@ -24,24 +23,17 @@ const riskDescription = document.getElementById("riskDescription");
 
 riskForm.addEventListener("submit", async function (event) {
 
-    // Prevent normal page reload
     event.preventDefault();
-
-    // -----------------------------------------------------
-    // Loading state
-    // -----------------------------------------------------
 
     riskForm.classList.add("loading");
 
     const button = riskForm.querySelector(".assess-button");
-
     const originalButtonText = button.innerHTML;
 
     button.innerHTML = `
         <span>ANALYZING...</span>
         <span class="arrow">◌</span>
     `;
-
 
     try {
 
@@ -50,10 +42,6 @@ riskForm.addEventListener("submit", async function (event) {
         // =================================================
 
         const applicantData = {
-
-            // -------------------------------------------------
-            // Basic information
-            // -------------------------------------------------
 
             ID: Number(
                 document.getElementById("ID").value
@@ -79,11 +67,6 @@ riskForm.addEventListener("submit", async function (event) {
                 document.getElementById("AGE").value
             ),
 
-
-            // -------------------------------------------------
-            // Payment history
-            // -------------------------------------------------
-
             PAY_0: Number(
                 document.getElementById("PAY_0").value
             ),
@@ -108,11 +91,6 @@ riskForm.addEventListener("submit", async function (event) {
                 document.getElementById("PAY_6").value
             ),
 
-
-            // -------------------------------------------------
-            // Billing amounts
-            // -------------------------------------------------
-
             BILL_AMT1: Number(
                 document.getElementById("BILL_AMT1").value
             ),
@@ -136,11 +114,6 @@ riskForm.addEventListener("submit", async function (event) {
             BILL_AMT6: Number(
                 document.getElementById("BILL_AMT6").value
             ),
-
-
-            // -------------------------------------------------
-            // Payment amounts
-            // -------------------------------------------------
 
             PAY_AMT1: Number(
                 document.getElementById("PAY_AMT1").value
@@ -173,15 +146,11 @@ riskForm.addEventListener("submit", async function (event) {
         // =================================================
 
         const response = await fetch("/predict", {
-
             method: "POST",
-
             headers: {
                 "Content-Type": "application/json"
             },
-
             body: JSON.stringify(applicantData)
-
         });
 
 
@@ -209,7 +178,6 @@ riskForm.addEventListener("submit", async function (event) {
                 console.error(
                     "Could not read API error."
                 );
-
             }
 
             throw new Error(errorMessage);
@@ -234,7 +202,6 @@ riskForm.addEventListener("submit", async function (event) {
 
         displayResult(result);
 
-
     } catch (error) {
 
         console.error(
@@ -246,24 +213,12 @@ riskForm.addEventListener("submit", async function (event) {
             "Something went wrong while generating the risk assessment. Please make sure the RiskWise server is running."
         );
 
-
     } finally {
-
-        // -------------------------------------------------
-        // Remove loading state
-        // -------------------------------------------------
 
         riskForm.classList.remove("loading");
 
-
-        // -------------------------------------------------
-        // Restore button
-        // -------------------------------------------------
-
         button.innerHTML = originalButtonText;
-
     }
-
 });
 
 
@@ -337,7 +292,6 @@ function displayResult(result) {
 
     }
 
-
     else if (riskLevel === "Moderate") {
 
         riskDescription.textContent =
@@ -360,7 +314,6 @@ function displayResult(result) {
 
     }
 
-
     else {
 
         riskDescription.textContent =
@@ -380,7 +333,6 @@ function displayResult(result) {
 
         probabilityElement.style.color =
             "#e50914";
-
     }
 
 
@@ -423,5 +375,4 @@ function displayResult(result) {
         });
 
     }, 150);
-
 }
