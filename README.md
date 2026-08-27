@@ -1,76 +1,39 @@
 # RiskWise
 
-RiskWise is a machine-learning based credit risk assessment application I built to estimate the probability of credit default for a loan or credit applicant.
+RiskWise is a machine-learning powered credit risk assessment application that predicts the probability of credit card default from an applicant's financial and demographic information.
 
-Enter an applicant's demographic, credit-limit, billing, and repayment information and RiskWise processes the data through the same preprocessing pipeline used during model training before generating a default probability and risk classification.
+The application provides a simple web interface where users can enter applicant details and receive a real-time risk assessment, including the predicted default probability and an interpretable risk level.
 
-## What it can do
+## What RiskWise Does
 
-- Accept applicant demographic and financial information
-- Process six months of payment history
-- Process six months of billing amounts
-- Process six months of payment amounts
-- Apply the trained preprocessing pipeline to new applicant data
-- Generate a credit-default prediction using a Random Forest classifier
-- Calculate the applicant's probability of default
-- Classify applicants into Low, Moderate, or High risk
-- Display the assessment through a responsive web interface
-- Provide a visual probability indicator and risk summary
+RiskWise takes applicant information such as:
 
-## Why I built it
+- Credit limit
+- Age
+- Education
+- Marital status
+- Payment history
+- Previous billing amounts
+- Previous payment amounts
 
-Credit risk assessment involves evaluating multiple financial and repayment-related factors rather than relying on a single value.
+and sends the data to a FastAPI backend.
 
-RiskWise was built to demonstrate how a trained machine-learning model can be turned into a usable application by connecting the complete pipeline:
+A trained Random Forest classifier processes the applicant's financial profile and returns:
 
-**Applicant Input → Data Preprocessing → Machine Learning Model → Risk Assessment → Web Interface**
+- Default probability
+- Risk classification
+- Risk explanation
 
-The project focuses not only on training a model, but also on serving the trained model through an API and providing a simple interface through which users can interact with it.
+The frontend then presents the result through a clean, Netflix-inspired dark interface.
 
-## How it works
+## Example
 
-1. The user enters applicant information through the RiskWise interface.
-2. JavaScript collects the form data and sends it to the FastAPI backend.
-3. FastAPI validates the request using a Pydantic schema.
-4. The trained preprocessing pipeline transforms the applicant data.
-5. The Random Forest classifier generates a prediction and default probability.
-6. RiskWise converts the probability into a risk category.
-7. The result is returned to the frontend and displayed to the user.
+A submitted applicant may receive a result such as:
 
-Risk classification is currently based on the model's predicted probability:
+```text
+Default Probability: 47.8%
 
-- Below 30% → Low Risk
-- 30% to below 60% → Moderate Risk
-- 60% and above → High Risk
+Risk Level: MODERATE
 
-## Tech Stack
-
-- Python
-- FastAPI
-- Pydantic
-- Pandas
-- NumPy
-- Scikit-learn
-- Joblib
-- HTML
-- CSS
-- JavaScript
-- Random Forest Classifier
-- Docker
-- Docker Compose
-- GitHub Actions
-
-## API
-
-### `POST /predict`
-
-Accepts applicant information and returns a credit risk assessment.
-
-Example response:
-
-```json
-{
-  "prediction": 0,
-  "default_probability": 0.271,
-  "risk_level": "Low"
-}
+The applicant presents a moderate probability
+of credit default. Additional review may be appropriate.
